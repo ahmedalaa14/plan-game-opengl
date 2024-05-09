@@ -47,3 +47,599 @@ static void resize(int width, int height)
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 }
+
+void drawShohidMinar(){
+
+    glColor3d(0.4,0.2,0.2);
+	glPushMatrix();
+        glTranslated(0,1.55,0);
+        glScaled(2,0.05,1.5);
+        glutSolidCube(1);
+    glPopMatrix();
+
+    glColor3d(0.4,0.2,0.2);
+	glPushMatrix();
+        glTranslated(0,1.6,0);
+        glScaled(1.9,0.05,1.4);
+        glutSolidCube(1);
+    glPopMatrix();
+
+    //glColor3d(0.4,0.2,0.2);
+    //glColor3d(1,0.8,0.7);
+    glColor3d(0.4,0.2,0.2);
+	glPushMatrix();
+        glTranslated(0,1.65,0);
+        glScaled(1.8,0.05,1.3);
+        glutSolidCube(1);
+    glPopMatrix();
+
+    /// pataton
+
+    glColor3d(1,1,1);
+	glPushMatrix();
+        glTranslated(0,1.68,-0.4);
+        glScaled(0.5,0.02,0.08);
+        glutSolidCube(1);
+    glPopMatrix();
+
+    /// Piller
+
+	glPushMatrix();
+        glTranslated(0,1.99,-0.4);
+        glScaled(0.06,0.7,0.04);
+        glutSolidCube(1);
+    glPopMatrix();
+
+    /// ROD
+
+    glColor3d(0,0,0);
+
+    glPushMatrix();
+        glTranslated(0.07,1.99,-0.4);
+        glScaled(0.003,0.7,0.003);
+        glutSolidCube(1);
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslated(0.11,1.99,-0.4);
+        glScaled(0.003,0.7,0.003);
+        glutSolidCube(1);
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslated(0.15,1.99,-0.4);
+        glScaled(0.003,0.7,0.003);
+        glutSolidCube(1);
+    glPopMatrix();
+
+    ///
+    glPushMatrix();
+    glTranslated(-0.22,0,0);
+        glPushMatrix();
+            glTranslated(0.07,1.99,-0.4);
+            glScaled(0.003,0.7,0.003);
+            glutSolidCube(1);
+        glPopMatrix();
+
+        glPushMatrix();
+            glTranslated(0.11,1.99,-0.4);
+            glScaled(0.003,0.7,0.003);
+            glutSolidCube(1);
+        glPopMatrix();
+
+        glPushMatrix();
+            glTranslated(0.15,1.99,-0.4);
+            glScaled(0.003,0.7,0.003);
+            glutSolidCube(1);
+        glPopMatrix();
+    glPopMatrix();
+
+    ///Horizontal rod
+        glPushMatrix();
+            glTranslated(2.2,0,-0.1);
+            glScaled(4.2,1,1);
+                glColor3d(0,0,0);
+                glPushMatrix();
+                    glTranslated(-0.528,1.85,-0.3);
+                    glScaled(0.1,0.003,0.003);
+                    glutSolidCube(1);
+                glPopMatrix();
+
+                glPushMatrix();
+                    glTranslated(-0.528,2.02,-0.3);
+                    glScaled(0.1,0.003,0.003);
+                    glutSolidCube(1);
+                glPopMatrix();
+
+                glPushMatrix();
+                    glTranslated(-0.528,2.18,-0.3);
+                    glScaled(0.1,0.003,0.003);
+                    glutSolidCube(1);
+                glPopMatrix();
+                glColor3d(1,1,1);
+            glPopMatrix();
+
+    /// ROD END
+
+    glColor3d(1,1,1);
+    glPushMatrix();
+        glTranslated(-0.22,1.99,-0.4);
+        glScaled(0.06,0.7,0.04);
+        glutSolidCube(1);
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslated(0.22,1.99,-0.4);
+        glScaled(0.06,0.7,0.04);
+        glutSolidCube(1);
+    glPopMatrix();
+
+    /// Uporer piller
+
+    glPushMatrix();
+        glTranslated(0,0.743,-1.424);
+        glRotated(45,1,0,0);
+
+        //glColor3d(1,0,1);
+        glPushMatrix();
+            glTranslated(0,1.99,-0.4);
+            glScaled(0.06,0.3,0.04);
+            glutSolidCube(1);
+        glPopMatrix();
+        //glColor3d(1,1,1);
+
+        glPushMatrix();
+            glTranslated(-0.22,1.99,-0.4);
+            glScaled(0.06,0.3,0.04);
+            glutSolidCube(1);
+        glPopMatrix();
+
+        glPushMatrix();
+            glTranslated(0.22,1.99,-0.4);
+            glScaled(0.06,0.3,0.04);
+            glutSolidCube(1);
+        glPopMatrix();
+
+        glPushMatrix();
+            glTranslated(0,2.15,-0.4);
+            glScaled(0.5,0.04,0.04);
+            glutSolidCube(1);
+        glPopMatrix();
+
+        /// ROD
+
+        glColor3d(0,0,0);
+
+        glPushMatrix();
+            glTranslated(0.07,1.99,-0.4);
+            glScaled(0.003,0.277,0.003);
+            glutSolidCube(1);
+        glPopMatrix();
+
+        glPushMatrix();
+            glTranslated(0.11,1.99,-0.4);
+            glScaled(0.003,0.277,0.003);
+            glutSolidCube(1);
+        glPopMatrix();
+
+        glPushMatrix();
+            glTranslated(0.15,1.99,-0.4);
+            glScaled(0.003,0.277,0.003);
+            glutSolidCube(1);
+        glPopMatrix();
+
+        ///
+
+        glColor3d(0,0,0);
+        glPushMatrix();
+        glTranslated(-0.22,0,0);
+            glPushMatrix();
+                glTranslated(0.07,1.99,-0.4);
+                glScaled(0.003,0.277,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(0.11,1.99,-0.4);
+                glScaled(0.003,0.277,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(0.15,1.99,-0.4);
+                glScaled(0.003,0.277,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+        glPopMatrix();
+        /// ROD END
+
+        ///Horizontal rod
+        glPushMatrix();
+            glTranslated(2.2,0,-0.1);
+            glScaled(4.2,1,1);
+                glColor3d(0,0,0);
+                glPushMatrix();
+                    glTranslated(-0.528,1.85,-0.3);
+                    glScaled(0.1,0.003,0.003);
+                    glutSolidCube(1);
+                glPopMatrix();
+
+                glPushMatrix();
+                    glTranslated(-0.528,2,-0.3);
+                    glScaled(0.1,0.003,0.003);
+                    glutSolidCube(1);
+                glPopMatrix();
+
+                glPushMatrix();
+                    glTranslated(-0.528,2.15,-0.3);
+                    glScaled(0.1,0.003,0.003);
+                    glutSolidCube(1);
+                glPopMatrix();
+                glColor3d(1,1,1);
+        glPopMatrix();
+
+    glPopMatrix();
+
+
+    /// pasher piller left 1
+    glColor3d(1,1,1);
+    glPushMatrix();
+        glTranslated(0.1,0,-0.4);
+        glRotated(45,0,1,0);
+
+        glPushMatrix();
+            glTranslated(-0.605,1.94,-0.3);
+            glScaled(0.045,0.65,0.03);
+            glutSolidCube(1);
+        glPopMatrix();
+
+        glPushMatrix();
+            glTranslated(-0.45,1.94,-0.3);
+            glScaled(0.045,0.65,0.03);
+            glutSolidCube(1);
+        glPopMatrix();
+
+        glPushMatrix();
+            glTranslated(-0.528,2.258,-0.3);
+            glScaled(0.199,0.04,0.03);
+            glutSolidCube(1);
+        glPopMatrix();
+
+        glPushMatrix();
+            glTranslated(-0.528,1.68,-0.3);
+            glScaled(0.199,0.02,0.06);
+            glutSolidCube(1);
+        glPopMatrix();
+
+        /// ROD
+        glColor3d(0,0,0);
+        glPushMatrix();
+            glTranslated(-0.64,-0.05,0.1);
+            glScaled(1,1.02,1);
+            glPushMatrix();
+                glTranslated(0.078,1.99,-0.4);
+                glScaled(0.003,0.56,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(0.11,1.99,-0.4);
+                glScaled(0.003,0.56,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(0.145,1.99,-0.4);
+                glScaled(0.003,0.56,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+        glPopMatrix();
+
+        ///
+        glColor3d(1,1,1);
+
+        ///Horizontal rod
+            glColor3d(0,0,0);
+            glPushMatrix();
+                glTranslated(-0.528,1.85,-0.3);
+                glScaled(0.1,0.003,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(-0.528,2,-0.3);
+                glScaled(0.1,0.003,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(-0.528,2.15,-0.3);
+                glScaled(0.1,0.003,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+            glColor3d(1,1,1);
+    glPopMatrix();
+
+    /// pasher piller left 2
+    glPushMatrix();
+        glTranslated(0.65,0,0.3);
+        glRotated(-45,0,1,0);
+
+        glPushMatrix();
+            glTranslated(-0.605,1.94,-0.3);
+            glScaled(0.045,0.65,0.03);
+            glutSolidCube(1);
+        glPopMatrix();
+
+        glPushMatrix();
+            glTranslated(-0.45,1.94,-0.3);
+            glScaled(0.045,0.65,0.03);
+            glutSolidCube(1);
+        glPopMatrix();
+
+        glPushMatrix();
+            glTranslated(-0.528,2.258,-0.3);
+            glScaled(0.199,0.04,0.03);
+            glutSolidCube(1);
+        glPopMatrix();
+
+        glPushMatrix();
+            glTranslated(-0.528,1.68,-0.3);
+            glScaled(0.199,0.02,0.06);
+            glutSolidCube(1);
+        glPopMatrix();
+
+        ///ROD
+        glColor3d(0,0,0);
+        glPushMatrix();
+        glTranslated(-0.64,-0.05,0.1);
+            glScaled(1,1.02,1);
+            glPushMatrix();
+                glTranslated(0.078,1.99,-0.4);
+                glScaled(0.003,0.56,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(0.11,1.99,-0.4);
+                glScaled(0.003,0.56,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(0.145,1.99,-0.4);
+                glScaled(0.003,0.56,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+        glPopMatrix();
+        glColor3d(1,1,1);
+        ///ROD
+
+        ///Horizontal rod
+            glColor3d(0,0,0);
+            glPushMatrix();
+                glTranslated(-0.528,1.85,-0.3);
+                glScaled(0.1,0.003,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(-0.528,2,-0.3);
+                glScaled(0.1,0.003,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(-0.528,2.15,-0.3);
+                glScaled(0.1,0.003,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+            glColor3d(1,1,1);
+
+    glPopMatrix();
+
+
+    ///Choto pillers
+
+    glPushMatrix();
+        /// pasher piller left 1
+        glTranslated(0.06,0,0.14);
+        glPushMatrix();
+
+            glTranslated(-0.2,0,-0.31);
+            glRotated(45,0,1,0);
+
+            glPushMatrix();
+                glTranslated(-0.605,1.88,-0.3);
+                glScaled(0.045,0.4,0.03);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(-0.45,1.88,-0.3);
+                glScaled(0.045,0.4,0.03);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(-0.528,2.08,-0.3);
+                glScaled(0.2,0.04,0.03);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(-0.528,1.68,-0.3);
+                glScaled(0.199,0.02,0.06);
+                glutSolidCube(1);
+            glPopMatrix();
+
+        ///ROD
+        glColor3d(0,0,0);
+        glPushMatrix();
+        glTranslated(-0.641,0.43,0.1);
+        glScaled(1,0.73,1);
+            glPushMatrix();
+                glTranslated(0.078,1.99,-0.4);
+                glScaled(0.003,0.56,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(0.11,1.99,-0.4);
+                glScaled(0.003,0.56,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(0.145,1.99,-0.4);
+                glScaled(0.003,0.56,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+        glPopMatrix();
+
+        ///Horizontal rod
+            glColor3d(0,0,0);
+            glPushMatrix();
+                glTranslated(-0.528,1.8,-0.3);
+                glScaled(0.1,0.003,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(-0.528,1.96,-0.3);
+                glScaled(0.1,0.003,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+            glColor3d(1,1,1);
+        ///ROD
+
+        glPopMatrix();
+
+        /// pasher piller left 2
+        glPushMatrix();
+            glTranslated(0.83,0,0.39);
+            glRotated(-45,0,1,0);
+
+            glPushMatrix();
+                glTranslated(-0.605,1.88,-0.3);
+                glScaled(0.045,0.4,0.03);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(-0.45,1.88,-0.3);
+                glScaled(0.045,0.4,0.03);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(-0.528,2.1,-0.3);
+                glScaled(0.199,0.04,0.03);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(-0.528,1.68,-0.3);
+                glScaled(0.199,0.02,0.06);
+                glutSolidCube(1);
+            glPopMatrix();
+
+
+            ///Horizontal rod
+            glColor3d(0,0,0);
+            glPushMatrix();
+                glTranslated(-0.528,1.8,-0.3);
+                glScaled(0.1,0.003,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(-0.528,1.96,-0.3);
+                glScaled(0.1,0.003,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+            glColor3d(1,1,1);
+
+            ///ROD
+        glColor3d(0,0,0);
+        glPushMatrix();
+        glTranslated(-0.641,0.43,0.1);
+        glScaled(1,0.73,1);
+            glPushMatrix();
+                glTranslated(0.078,1.99,-0.4);
+                glScaled(0.003,0.56,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(0.11,1.99,-0.4);
+                glScaled(0.003,0.56,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+
+            glPushMatrix();
+                glTranslated(0.145,1.99,-0.4);
+                glScaled(0.003,0.56,0.003);
+                glutSolidCube(1);
+            glPopMatrix();
+        glPopMatrix();
+        glColor3d(1,1,1);
+        ///ROD
+
+        glPopMatrix();
+
+
+    glPopMatrix();
+
+    /// Circle
+
+    glColor3d(1,0,0);
+    glPushMatrix();
+        glTranslated(0,2.1,-0.44);
+        glScaled(0.35,0.35,0.01);
+        glutSolidSphere(1,50,50);
+    glPopMatrix();
+
+    glColor3d(0,0,0);
+    glPushMatrix();
+        glTranslated(-0.18,1.9,-0.45);
+        glScaled(0.01,0.5,0.01);
+        glutSolidCube(1);
+    glPopMatrix();
+
+    glColor3d(0,0,0);
+    glPushMatrix();
+        glTranslated(0.18,1.9,-0.45);
+        glScaled(0.01,0.5,0.01);
+        glutSolidCube(1);
+    glPopMatrix();
+
+
+}
+
+void fan(){
+    glColor3d(0.5,1,0);
+    glPushMatrix();
+        glTranslated(0,0,0);
+        glScaled(1,1,0.7);
+        glutSolidSphere(0.8,30,30);
+    glPopMatrix();
+
+    glColor3d(0.5,1,0);
+    glPushMatrix();
+        glTranslated(0,0,0);
+        glRotated(5,0,1,0);
+        glScaled(0.5,2.5,0.05);
+        glutSolidSphere(1,30,30);
+    glPopMatrix();
+
+    glColor3d(0.5,1,0);
+    glPushMatrix();
+        glTranslated(0,0,0);
+        glRotated(-5,0,1,0);
+        glRotated(90,0,0,1);
+        glScaled(0.5,2.5,0.05);
+        glutSolidSphere(1,30,30);
+    glPopMatrix();
+
+}
