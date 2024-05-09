@@ -1010,3 +1010,247 @@ void drawBitmapText(char *str,float x,float y,float z)
 		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10, *c);
 	}
 }
+
+void drawStrokeText(char* str,int x,int y,int z)
+{
+	  char *c;
+	  glPushMatrix();
+	  glTranslatef(x, y+8,z);
+	  glScalef(0.002f,0.002f,z);
+
+	  for (c=str; *c != '\0'; c++)
+	  {
+    		glutStrokeCharacter(GLUT_STROKE_ROMAN , *c);
+	  }
+	  glPopMatrix();
+}
+
+void drawStrokeText2(char* str,int x,int y,int z)
+{
+	  char *c;
+	  glPushMatrix();
+	  glTranslatef(x, y+8,z);
+	  glScalef(0.005f,0.005f,z);
+
+	  for (c=str; *c != '\0'; c++)
+	  {
+    		glutStrokeCharacter(GLUT_STROKE_ROMAN , *c);
+	  }
+	  glPopMatrix();
+}
+void drawStrokeChar(char c,float x,float y,float z)
+{
+	  glPushMatrix();
+          glTranslatef(x, y+8,z);
+          glScalef(0.002f,0.002f,z);
+          glutStrokeCharacter(GLUT_STROKE_ROMAN , c);
+	  glPopMatrix();
+}
+
+static void display(void)
+{
+    const double t = glutGet(GLUT_ELAPSED_TIME) / 1000.0;
+    double a = t*90.0;
+    double aa=a;
+
+    if(!rot){
+        a=0;
+    }
+
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glLoadIdentity();
+
+    gluLookAt(	0.0, 4.5, 10.0,
+                0, 4, 0,
+                0, 1.0f, 0.0f);
+
+    if(START){
+
+        glPushMatrix();
+            glTranslated(0,0,0);
+            glScaled(zoom,zoom,zoom);
+            glRotated(a,0,1,0);
+            draw();
+        glPopMatrix();
+
+        drawStrokeText("UP: W, DOWN: S, LEFT: A, RIGHT: D, MAIN MENU: M",-8,0.9,0);
+        drawStrokeText("TIME : ",3,0,0);
+        int mod,number=0;
+        while(TIME){
+            mod=TIME%10;
+            number=number*10+mod;
+            TIME/=10;
+        }
+        float tmp=0;
+        while(number){
+            mod=number%10;
+            drawStrokeChar(mod+48,4+tmp,0,0);
+            number/=10;
+            tmp+=0.2;
+        }
+    }
+    else{
+
+        glPushMatrix();
+            glTranslated(0,3,0);
+            glRotated(aa,0,1,0);
+            glScaled(1.5,1.5,1.5);
+            plane();
+        glPopMatrix();
+
+        drawStrokeText("Press G to Start",-1,-1,0);
+        drawStrokeText2("Plane Game",-2,0,0);
+    }
+
+    //glColor3d(1,1,0);
+	//drawStrokeText("Osama Hosam's OpenGL Tutorials",200,200,0);
+
+//	glRasterPos2i(100, 120);
+//    glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
+//    glutBitmapString(GLUT_BITMAP_HELVETICA_18, "text to render");
+
+    //drawBitmapText("Osama Hosam's OpenGL Tutorials",0,0,0);
+
+
+    //drawStrokeChar(49,2,0,0);
+
+
+    glutSwapBuffers();
+}
+
+
+static void key(unsigned char key, int x, int y)
+{
+    float frac = 0.3;
+    float rotFrac = 1;
+    switch (key)
+    {
+        case 27 :
+        case 'q':
+            exit(0);
+            break;
+        case 'r':
+            rot=true;
+            break;
+        case 't':
+            rot=false;
+            break;
+        case 'z':
+            zoom+=0.05;
+            break;
+        case 'Z':
+            zoom-=0.05;
+        case 'w':
+            tY-=frac;
+            rotZ+=rotFrac;
+            break;
+        case 's':
+            tY+=frac;
+            rotZ-=rotFrac;
+            break;
+        case 'a':
+            tX+=frac;
+            rotX-=rotFrac*3;
+            rotY+=rotFrac/2;
+            break;
+        case 'd':
+            tX-=frac;
+            rotX+=rotFrac*3;
+            rotY-=rotFrac/2;
+            break;
+//        case 'y':
+//            rotX-=rotFrac;
+//            break;
+//        case 'h':
+//            rotX+=rotFrac;
+//            break;
+//        case 'g':
+//            rotY+=rotFrac;
+//            break;
+//        case 'j':
+//            rotY-=rotFrac;
+//            break;
+        case 'g':
+            START=true;
+            break;
+        case 'm':
+            START=false;
+            break;
+//        case 'o':
+//            cosX-=frac*cos(rotX*rad);
+//            cosY+=frac*cos(rotY*rad);
+//            cosZ-=frac*cos(rotZ*rad);
+//            //cout<<"Front : "<<cosX<<" "<<cosY<<" "<<cosZ<<endl;
+//            break;
+//        case 'l':
+//            cosX+=frac*cos(rotX*rad);
+//            cosY-=frac*cos(rotY*rad);
+//            cosZ+=frac*cos(rotZ*rad);
+//            //cout<<"Back : "<<cosX<<" "<<cosY<<" "<<cosZ<<endl;
+//            break;
+
+    }
+
+    glutPostRedisplay();
+}
+
+static void idle(void)
+{
+    glutPostRedisplay();
+}
+
+const GLfloat light_ambient[]  = { 0.0f, 0.0f, 0.0f, 1.0f };
+const GLfloat light_diffuse[]  = { 1.0f, 1.0f, 1.0f, 1.0f };
+const GLfloat light_specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+const GLfloat light_position[] = { 2.0f, 5.0f, 5.0f, 0.0f };
+
+const GLfloat mat_ambient[]    = { 0.7f, 0.7f, 0.7f, 1.0f };
+const GLfloat mat_diffuse[]    = { 0.8f, 0.8f, 0.8f, 1.0f };
+const GLfloat mat_specular[]   = { 1.0f, 1.0f, 1.0f, 1.0f };
+const GLfloat high_shininess[] = { 100.0f };
+
+/* Program entry point */
+
+int main(int argc, char *argv[])
+{
+    glutInit(&argc, argv);
+    glutInitWindowPosition(0,0);
+	glutInitWindowSize(1366,720);
+    glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGBA);
+
+    glutCreateWindow("GLUT Shapes");
+
+    glutReshapeFunc(resize);
+    glutDisplayFunc(display);
+    glutKeyboardFunc(key);
+    glutIdleFunc(idle);
+
+    //PlaySound("starwars.wav", NULL, SND_ASYNC|SND_FILENAME|SND_LOOP);
+
+    glClearColor(1,1,1,1);
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
+
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
+
+    glEnable(GL_LIGHT0);
+    glEnable(GL_NORMALIZE);
+    glEnable(GL_COLOR_MATERIAL);
+    glEnable(GL_LIGHTING);
+
+    glLightfv(GL_LIGHT0, GL_AMBIENT,  light_ambient);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE,  light_diffuse);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
+    glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+
+    glMaterialfv(GL_FRONT, GL_AMBIENT,   mat_ambient);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE,   mat_diffuse);
+    glMaterialfv(GL_FRONT, GL_SPECULAR,  mat_specular);
+    glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess);
+
+    glutMainLoop();
+
+    return EXIT_SUCCESS;
+}
