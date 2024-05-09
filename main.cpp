@@ -783,3 +783,39 @@ void plane(){
 //    glPopMatrix();
 }
 
+void singleTolaHouse(int R,int G,int B){
+    glColor3d(r[R%11],g[G%11],b[B%11]);
+    glPushMatrix();
+        glTranslated(0,0,0);
+        glutSolidCube(1);
+    glPopMatrix();
+
+    glColor3d(0,0,0);
+    glPushMatrix();
+        glTranslated(0.2,0,0);
+        glScaled(0.3,0.3,1.001);
+        glutSolidCube(1);
+    glPopMatrix();
+
+    glColor3d(0,0,0);
+    glPushMatrix();
+        glTranslated(-0.2,0,0);
+        glScaled(0.3,0.3,1.001);
+        glutSolidCube(1);
+    glPopMatrix();
+
+    glColor3d(0,0,0);
+    glPushMatrix();
+        glTranslated(0,0,0.2);
+        glScaled(1.001,0.3,0.3);
+        glutSolidCube(1);
+    glPopMatrix();
+
+    glColor3d(0,0,0);
+    glPushMatrix();
+        glTranslated(0,0,-0.2);
+        glScaled(1.001,0.3,0.3);
+        glutSolidCube(1);
+    glPopMatrix();
+
+}
