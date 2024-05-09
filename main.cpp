@@ -819,3 +819,194 @@ void singleTolaHouse(int R,int G,int B){
     glPopMatrix();
 
 }
+
+void house(int n,int R,int G){
+    for(int i=0;i<n;i++){
+        glPushMatrix();
+            glTranslated(0,0.8+i,0);
+            singleTolaHouse(G,R,i);
+        glPopMatrix();
+    }
+}
+
+void soheedMinarEnv(){
+    /// Ground
+    glColor3d(0,0.5,0.1);
+    glPushMatrix();
+        glTranslated(0,0,0);
+        glScaled(EN_SIZE*2,0.3,EN_SIZE*2);
+        glutSolidCube(1);
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslated(-8,-2.7,-5);
+        glRotated(65,0,1,0);
+        //glRotated(15,0,1,0);
+        glScaled(2,2,2);
+        drawShohidMinar();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslated(8,-2.7,-5);
+        glRotated(-65,0,1,0);
+        //glRotated(15,0,1,0);
+        glScaled(2,2,2);
+        drawShohidMinar();
+    glPopMatrix();
+}
+
+void environment(int n){
+
+    /// Ground
+    glColor3d(0,0.5,0.1);
+    glPushMatrix();
+        glTranslated(0,0,0);
+        glScaled(EN_SIZE*2,0.3,EN_SIZE*2);
+        glutSolidCube(1);
+    glPopMatrix();
+
+
+    glColor3d(0,1,0.1);
+    glPushMatrix();
+        glTranslated(torusPosX[n],torusPosY[n],0);
+        glScaled(0.3,0.3,0.3);
+        glutSolidTorus(1,3,30,30);
+    glPopMatrix();
+
+        for(int i=-(EN_SIZE/2)+1;i<(EN_SIZE/2);i+=2){
+            for(int j=-(EN_SIZE/2)+1;j<(EN_SIZE/2);j+=2){
+                if(tola[i+(EN_SIZE/2)+1][j+(EN_SIZE/2)+1]!=0){
+                    glPushMatrix();
+                        glTranslated(i,0,j);
+                        house(tola[i+(EN_SIZE/2)+1][j+(EN_SIZE/2)+1],i,j);
+                    glPopMatrix();
+                }else if(i>=-5&&i<=5){}
+                else{
+                    tola[i+(EN_SIZE/2)+1][j+(EN_SIZE/2)+1]=(rand()%5)+1;
+                    glPushMatrix();
+                        glTranslated(i,0,j);
+                        house(tola[i+(EN_SIZE/2)+1][j+(EN_SIZE/2)+1],i,j);
+                    glPopMatrix();
+                }
+            }
+        }
+
+   // glColor3d(0,1,0.7);
+
+//    glPushMatrix();
+//        glRotated(angle,0,1,0);
+//        glPushMatrix();
+//            glTranslated(tX,tY,tZ);
+//            glScaled(1,1,2);
+//            //glRotated(90,1,0,0);
+//            glutSolidCube(1);
+//        glPopMatrix();
+//    glPopMatrix();
+}
+
+void draw(){
+    double t = glutGet(GLUT_ELAPSED_TIME) / 1000.0;
+    double a = t*90.0;
+
+    TIME = t;
+
+    ///Plane
+    if(rotX>11)rotX=11;
+    if(rotX<-11)rotX=-11;
+    if(rotZ>10)rotZ=10;
+    if(rotZ<-15)rotZ=-15;
+
+    glPushMatrix();
+        glTranslated(0,1,0);
+        glRotated(90,0,1,0);
+        glRotated(5,0,0,1);
+        glRotated(rotX,1,0,0);
+        glRotated(rotY,0,1,0);
+        glRotated(rotZ,0,0,1);
+
+        glScaled(0.4,0.4,0.4);
+        plane();
+    glPopMatrix();
+
+    ///Environment
+    if(tX>=4.1)tX=4.1;
+    if(tX<=-4.1)tX=-4.1;
+    if(tY>0.1)tY= 0.1;
+    if(tY<-15)tY= -15;
+
+    glPushMatrix();
+        glTranslated(tX,tY,tZ);
+        environment(2);
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslated(tX,tY,tZ1);
+        soheedMinarEnv();
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslated(tX,tY,tZ2);
+        environment(3);
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslated(tX,tY,tZ3);
+        environment(1);
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslated(tX,tY,tZ4);
+        environment(5);
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslated(tX,tY,tZ5);
+        environment(4);
+    glPopMatrix();
+
+    glPushMatrix();
+        glTranslated(tX,tY,tZ6);
+        environment(2);
+    glPopMatrix();
+
+    tZ+=speed;
+    tZ1+=speed;
+    tZ2+=speed;
+    tZ3+=speed;
+    tZ4+=speed;
+    tZ5+=speed;
+    tZ6+=speed;
+
+    if(tZ>=20)tZ=-110;
+    if(tZ1>=20)tZ1=-110;
+    if(tZ2>=20)tZ2=-110;
+    if(tZ3>=20)tZ3=-110;
+    if(tZ4>=20)tZ4=-110;
+    if(tZ5>=20)tZ5=-110;
+    if(tZ6>=20)tZ6=-110;
+
+    if(rotX>0)rotX-=angleBackFrac;
+    if(rotX<0)rotX+=angleBackFrac;
+    if(rotY>0)rotY-=angleBackFrac;
+    if(rotY<0)rotY+=angleBackFrac;
+    if(rotZ>0)rotZ-=angleBackFrac;
+    if(rotZ<0)rotZ+=angleBackFrac;
+
+    //cout<<tX<<" "<<tY<<" "<<tZ<<endl;
+    //cout<<rotX<<" "<<rotY<<" "<<rotZ<<endl;
+
+    speed += 0.0002;
+    if(speed>=0.7)speed=0.7;
+}
+
+
+void drawBitmapText(char *str,float x,float y,float z)
+{
+	char *c;
+	glRasterPos3f(x,y+8,z);
+
+	for (c=str; *c != '\0'; c++)
+	{
+		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10, *c);
+	}
+}
