@@ -34,3 +34,16 @@ float torusPosX[7] = {1,-2,3,-4,-2,0,2};
 float torusPosY[7] = {2,3,10,6,7,4,1};
 
 bool rot = false;
+
+static void resize(int width, int height)
+{
+    const float ar = (float) width / (float) height;
+
+    glViewport(0, 0, width, height);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glFrustum(-ar, ar, -1.0, 1.0, 2.0, 1000.0);
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+}
