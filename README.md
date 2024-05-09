@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is a game developed using OpenGL.
+- This project is a Game Developed using OpenGL.
 
 ## Installation
 
